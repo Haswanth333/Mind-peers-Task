@@ -27,3 +27,12 @@
   font-size: 14px;
   text-align: center;
 }
+.card {
+  /* width: auto; */
+  margin: 0;
+  /* padding: 30px; */
+}
+
+/* .pic {
+  margin: 50px;
+} */

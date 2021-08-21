@@ -1,10 +1,11 @@
 import React from "react";
+import "../App.css";
 
 const Picture = ({ src }) => {
   return (
-    <>
-      <img src={src} alt="pics" />
-    </>
+    <div class="card">
+      <img src={src} alt="pics" className="card" />
+    </div>
   );
 };
 
