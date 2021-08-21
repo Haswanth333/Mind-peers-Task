@@ -49,7 +49,7 @@ class Gallery extends Component {
           return (
             <Picture
               alt="response.im"
-              // className="pic"
+              className="pic"
               src={srcPath}
               key={pic.id}
             />

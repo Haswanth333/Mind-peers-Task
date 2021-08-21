@@ -10,7 +10,7 @@
   font-size: 25px;
 }
 .head {
-  height: 100px;
+  height: 120px;
   background-color: rgb(68, 64, 64);
   color: whitesmoke;
   margin-top: 0;
@@ -21,18 +21,22 @@
 .searchbox {
   border-radius: 2px;
   border: none;
-  width: 200px;
-  height: 20px;
+  width: 350px;
+  height: 30px;
   padding: 8px;
-  font-size: 14px;
+  font-size: 14px !important;
+  font-family: Arial, Helvetica, sans-serif;
   text-align: center;
 }
 .card {
   /* width: auto; */
-  margin: 0;
+  margin: 10px;
+  padding: 0;
+  border-radius: 10px;
+
   /* padding: 30px; */
 }
 
-/* .pic {
-  margin: 50px;
-} */
+.pic {
+  border-radius: 10px;
+}
