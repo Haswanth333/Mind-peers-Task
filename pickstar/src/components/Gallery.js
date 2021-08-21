@@ -62,7 +62,7 @@ class Gallery extends Component {
   render() {
     return (
       <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}>
-        <Masonry>{this.state.pictures}</Masonry>
+        <Masonry className="gallery">{this.state.pictures}</Masonry>
       </ResponsiveMasonry>
     );
   }

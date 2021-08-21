@@ -3,9 +3,9 @@ import "../App.css";
 
 const Picture = ({ src }) => {
   return (
-    <div class="card">
+    <li className="card">
       <img src={src} alt="pics" className="pic" />
-    </div>
+    </li>
   );
 };
 
