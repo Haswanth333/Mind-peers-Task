@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
-import axios from "axios";
+// import axios from "axios"
 
 const Gallery = () => {
   const [pictures, setPictures] = useState([]);
@@ -38,7 +38,7 @@ const Gallery = () => {
     <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}>
       <Masonry>
         {pictures.map((pic) => {
-          return <img src={pic} />;
+          return <img src={pic} className="card" />;
         })}
       </Masonry>
     </ResponsiveMasonry>
