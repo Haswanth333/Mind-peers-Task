@@ -1,64 +1,40 @@
 const baseURL = "https://api.flickr.com/services/rest/";
 const API_KEY = "f34f74397cfd5ba3996a727c4490ed73";
-// const API_KEY = process.env.API_KEY;
-// console.log(API_KEY);
-export const getRecentPictures = async (page, json) => {
+
+export const getTrendingImages = async (page) => {
   try {
     const res = await fetch(
-      `${baseURL}?method=flickr.photos.getRecent&api_key=${API_KEY}&per_page=&page=${page}format=json&nojsoncallback=1`,
-      {}
+      `${baseURL}/?method=flickr.photos.getRecent&api_key=${API_KEY}&per_page=30&page=${page}&format=json&nojsoncallback=1`
     );
     if (!res.ok) {
-      console.log("failed", res.status);
+      console.error("failed", res.status);
       return;
     }
     const json = await res.json();
     console.log(json);
-    // console.log(res.json());
-    return json;
+    console.log(json.photos.photo);
+    return json.photos.photo;
   } catch (error) {
-    console.log("error");
+    console.error("error in making request", error);
   }
 };
 
-// export const getinfiniteScroll = async (page) => {
-//   try {
-//     const res = await fetch(
-//       `${baseURL}?method=flickr.photos.getRecent&api_key=${API_KEY}&per_page=${page}&format=json&nojsoncallback=1`,
-//       {}
-//     );
-//     if (!res.ok) {
-//       console.log("failed", res.status);
-//       return;
-//     }
-//     const json = await res.json();
-//     console.log(json);
-//     // console.log(res.json());
-//     return json;
-//   } catch (error) {
-//     console.log("error");
-//   }
-// };
+/** Return the searched images */
+export const getSearchedImages = async (query) => {
+  const url = new URL(
+    `${baseURL}/?method=flickr.photos.search&api_key=${API_KEY}&per_page=30&tags=${query}&format=json&nojsoncallback=1`
+  );
 
-// export const getSearchedPictures = async (query) => {
-//   const url = new URL(
-//     `${baseURL}?method=flickr.photos.search&api_key=${API_KEY}`
-//   );
-//   url.search = new URLSearchParams({
-//     tags: query,
-//     per_page: 30,
-//   });
-//   try {
-//     const res = await fetch(`${url}&format=json&nojsoncallback=1`, {});
-//     if (!res.ok) {
-//       console.log("failed", res.status);
-//       return;
-//     }
-//     const json = await res.json();
-//     console.log(json);
-//     // console.log(res.json());
-//     return json.results;
-//   } catch (error) {
-//     console.log("error");
-//   }
-// };
+  try {
+    const res = await fetch(url);
+    if (!res.ok) {
+      console.error("failed", res.status);
+      return;
+    }
+    const json = await res.json();
+    // console.log(json);
+    return json.photos.photo;
+  } catch (error) {
+    console.error("error in making request", error);
+  }
+};

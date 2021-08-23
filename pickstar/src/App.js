@@ -1,29 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import Gallery from "./components/Gallery";
-import "./App.css";
 import SearchBox from "./components/SearchBox";
-import { ResponsiveMasonry } from "react-responsive-masonry";
 
 const App = () => {
+  const [input, setInput] = useState("");
   return (
-    <div>
-      <div className="head">
-        <h1 className="title">SEARCH PHOTOS</h1>
-        {/* <SearchBox /> */}
-        <input
-          type="text"
-          name="Search"
-          className="searchbox"
-          // value={picture}
-          placeholder="Search for Pics"
-          // onChange={(e) => {
-          //   setPicture(e.target.value);
-          // }}
-        />
-      </div>
-      <ResponsiveMasonry></ResponsiveMasonry>
-      <Gallery />
-    </div>
+    <center>
+      <h1>Welcome to PhotuApp</h1>
+      <SearchBox input={input} setInput={setInput} />
+      <Gallery query={input} />
+    </center>
   );
 };
 

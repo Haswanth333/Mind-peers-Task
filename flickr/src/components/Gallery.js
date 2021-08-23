@@ -36,7 +36,7 @@ const Gallery = () => {
         setPictures(urlArr);
         console.log(pictures);
       });
-  }, [page, searchValue]);
+  }, [page, searchValue, method]);
 
   const scrolltoEnd = () => {
     setTimeout(setPage(page + 1), 5000);

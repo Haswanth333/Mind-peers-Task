@@ -1,32 +1,19 @@
-import React, { Component } from "react";
-import "../App.css";
+import React, { useState } from "react";
+import { DebounceInput } from "react-debounce-input";
 
-class SearchBox extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      inputValue: "",
-      onSearch: true,
-    };
-  }
-
-  render() {
-    return (
-      <div>
-        <input
-          type="text"
-          name="Search"
-          className="searchbox"
-          // value={picture}
-          placeholder="Search for Pics"
-          // onChange={(e) => {
-          //   setPicture(e.target.value);
-          // }}
-        />
-      </div>
-    );
-  }
-}
+const SearchBox = ({ input, setInput }) => {
+  return (
+    <DebounceInput
+      type="text"
+      name="Photo Search"
+      placeholder="Search for photus"
+      className="searchBox"
+      minLength={3}
+      debounceTimeout={300}
+      value={input}
+      onChange={(e) => setInput(e.target.value)}
+    />
+  );
+};
 
 export default SearchBox;
