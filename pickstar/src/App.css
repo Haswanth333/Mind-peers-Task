@@ -10,27 +10,29 @@
   font-size: 25px;
 }
 .head {
-  height: 120px;
+  height: 100px;
   display: flex;
   flex-direction: column;
   background-color: rgb(68, 64, 64);
   color: whitesmoke;
-  padding-top: 25px;
+  padding-top: 10px;
   position: fixed;
   align-items: center;
   top: 0;
   width: 100%;
   z-index: 100;
 }
-
+.outterGallery {
+  margin-top: 100px;
+}
 .searchbox {
   border-radius: 2px;
   border: none;
-  width: auto;
+  width: 200px;
   height: 30px;
   padding: 8px;
   font-size: 14px !important;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif !important;
   text-align: center;
 }
 .card {
@@ -44,10 +46,18 @@
 
 .pic {
   border-radius: 10px;
+  cursor: pointer;
 }
 .gallery {
   margin-top: 120px;
   /* margin: 120px 10% 0 10% */
   padding-right: 10%;
   padding-left: 10%;
+}
+
+.imModal {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  margin: auto;
 }
