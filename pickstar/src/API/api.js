@@ -1,12 +1,12 @@
 const baseURL = "https://api.flickr.com/services/rest/";
-const API_KEY = "f34f74397cfd5ba3996a727c4490ed73";
+const { REACT_APP_API_KEY } = process.env;
 
 // method fro getting recent photos
 export const getTrendingImages = async (page) => {
   try {
     // get recent method and page(for infinitescroll)
     const res = await fetch(
-      `${baseURL}/?method=flickr.photos.getRecent&api_key=${API_KEY}&per_page=30&page=${page}&format=json&nojsoncallback=1`
+      `${baseURL}/?method=flickr.photos.getRecent&api_key=${REACT_APP_API_KEY}&per_page=100&page=${page}&format=json&nojsoncallback=1`
     );
     if (!res.ok) {
       console.error("failed", res.status);
@@ -26,7 +26,7 @@ export const getTrendingImages = async (page) => {
 export const getSearchedImages = async (query) => {
   // accessing query from input and passing to fetch to tags
   const url = new URL(
-    `${baseURL}/?method=flickr.photos.search&api_key=${API_KEY}&per_page=30&tags=${query}&format=json&nojsoncallback=1`
+    `${baseURL}/?method=flickr.photos.search&api_key=${REACT_APP_API_KEY}&per_page=50&tags=${query}&format=json&nojsoncallback=1`
   );
 
   try {

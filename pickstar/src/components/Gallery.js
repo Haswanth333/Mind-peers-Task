@@ -11,8 +11,14 @@ const modalStyle = {
     left: "50%",
     right: "auto",
     bottom: "auto",
+    padding: "0",
+    height: "70%",
+    width: "auto",
     marginRight: "-50%",
     marginTop: "5%",
+    overflow: "none",
+    background: "none",
+    border: "2px ",
     transform: "translate(-50%, -50%)",
   },
 };
@@ -20,7 +26,6 @@ const Gallery = ({ query }) => {
   const [imgList, setImgList] = useState([]);
   const [imageModal, setImageModal] = useState(null);
   const [page, setPage] = useState(1);
-  const [recent, setRecent] = useState([]);
 
   // calling recent photos wit use effect
   useEffect(() => {
@@ -84,11 +89,6 @@ const Gallery = ({ query }) => {
         return srcPath;
       });
       setImgList(pictures);
-      setRecent([query]);
-      window.localStorage.setItem("recent", JSON.stringify(recent));
-      console.log(query);
-      // console.log(data);
-      console.log(recent);
     });
   }, [query]);
 
