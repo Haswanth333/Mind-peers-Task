@@ -5,7 +5,10 @@ import "./App.css";
 
 // dividing the total app with 2 components Search and Gallery
 const App = () => {
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState("", () => {
+    const localData = localStorage.getItem("key");
+    return localData ? JSON.parse(localData) : "";
+  });
   return (
     <div className="App">
       <div className="head">

@@ -6,7 +6,7 @@ export const getTrendingImages = async (page) => {
   try {
     // get recent method and page(for infinitescroll)
     const res = await fetch(
-      `${baseURL}/?method=flickr.photos.getRecent&api_key=${API_KEY}&per_page=30&page=${page}&format=json&nojsoncallback=1`
+      `${baseURL}/?method=flickr.photos.getRecent&api_key=${API_KEY}&per_page=100&page=${page}&format=json&nojsoncallback=1`
     );
     if (!res.ok) {
       console.error("failed", res.status);
@@ -26,7 +26,7 @@ export const getTrendingImages = async (page) => {
 export const getSearchedImages = async (query) => {
   // accessing query from input and passing to fetch to tags
   const url = new URL(
-    `${baseURL}/?method=flickr.photos.search&api_key=${API_KEY}&per_page=30&tags=${query}&format=json&nojsoncallback=1`
+    `${baseURL}/?method=flickr.photos.search&api_key=${API_KEY}&per_page=50&tags=${query}&format=json&nojsoncallback=1`
   );
 
   try {
